@@ -12,11 +12,11 @@ Aqui teremos as informações sobre o cadastro
 Vamos lá explorar:
 
 - **Holding**:
-  Acabou a criatividade para explorar texto
+  Texto 1
 - **Granja**:
-  Acabou a criatividade para explorar texto
+  Texto 2
 - **Ambiente**:
-  Iremos utilizar o ambiente de dev para os primeiros testes: https://sds-backend.agriness-dev.com/
+  Texto 3
 
 ### Eventos
 
