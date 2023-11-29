@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob("../content/posts/*{md,mdx}");
+  const posts = allPosts.filter(
+    (post) => !post.frontmatter.draft && post.frontmatter.slug
+  );
+
+  return posts.map((post) => ({
+    params: {
+      slug: post.frontmatter.slug,
+    },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={post.frontmatter.title}>
+  <div class="pb-12 mx-auto max-w-3xl text-gray-200">
+    <h2 class="text-center text-5xl pt-12 pb-3 text-gray-200">{post.frontmatter.title}</h2>
+    <p class="text-center text-lg text-gray-200 pb-4">{post.frontmatter.description}</p>
+    <post.Content />
+  </div>
+
+    <div class="wrapper">
+      <nav>
+        <input type="checkbox" id="menu" name="menu" class="m-menu__checkbox">
+        <label class="m-menu__toggle" for="menu">
+          <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="butt" stroke-linejoin="arcs"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </label>
+        <label class="m-menu__overlay" for="menu"></label>
+      
+        <div class="m-menu">
+          <div class="m-menu__header">
+            <label class="m-menu__toggle" for="menu">
+              <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="butt" stroke-linejoin="arcs">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </label>
+            <span><a href="/">SDS Wiki</a></span>
+          </div>
+          <ul>
+            <li><label><a href="/">Início</a></label></li>
+            <li><label><a href="sds-animal-group">SDS Animal Group</a></label></li>
+            <li><label><a href="sds-farm">SDS Farm</a></label></li>
+            <li><label><a href="sds-incubatorio">SDS Incubatório</a></label></li>
+          </ul>
+    
+          <a href="all"><label class="ver-todos-button">Ver todos</label></a>
+          
+        </div>
+      </nav>
+</Layout>

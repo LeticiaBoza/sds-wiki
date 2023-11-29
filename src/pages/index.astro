@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SearchBar from "../components/SearchBar.astro";
+---
+
+<Layout title="MyBlog">
+ 
+
+  <div class="flex justify-center items-center h-screen flex-col">
+  <div class="wrapper">
+    <nav>
+      <input type="checkbox" id="menu" name="menu" class="m-menu__checkbox">
+      <label class="m-menu__toggle" for="menu">
+        <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="butt" stroke-linejoin="arcs"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </label>
+      <label class="m-menu__overlay" for="menu"></label>
+    
+      <div class="m-menu">
+        <div class="m-menu__header">
+          <label class="m-menu__toggle" for="menu">
+            <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="butt" stroke-linejoin="arcs">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </label>
+          <span><a href="/">SDS Wiki</a></span>
+        </div>
+        <ul>
+          <li><label><a href="/">Início</a></label></li>
+          <li><label><a href="sds-animal-group">SDS Animal Group</a></label></li>
+          <li><label><a href="sds-farm">SDS Farm</a></label></li>
+          <li><label><a href="sds-incubatorio">SDS Incubatório</a></label></li>
+        </ul>
+        
+        <a href="all"><label class="ver-todos-button">Ver todos</label></a>
+      </div>
+    </nav>
+  </div>
+
+    <h1
+      class="text-7xl font-bold bg-clip-text text-white"
+    >
+      SDS Wiki
+    </h1>
+    <div class="pt-5 w-1/2">
+      <SearchBar />
+    </div>
+  </div>
+</Layout>

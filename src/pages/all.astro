@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+
+const { href: url } = Astro.url;
+const codeEntries = await getCollection('posts');
+---
+
+<Layout
+	title="SDS Wiki<"
+>
+  <div class="flex justify-center items-center h-screen flex-col">
+	<h1 class="mb-4 text-3xl sm:text-4xl tracking-tight text-slate-300 font-extrabold dark:text-slate-200 mb-0">Todos os Documentos</h1>
+	<h2 class="text-lg text-slate-500 font-normal">Todos os documentos de Markdown.</h2>
+  <div class="flex">
+    <nav class="p-0">
+      <input type="checkbox" id="menu" name="menu" class="m-menu__checkbox">
+      <label class="m-menu__toggle" for="menu">
+        <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="butt" stroke-linejoin="arcs"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </label>
+      <label class="m-menu__overlay" for="menu"></label>
+    
+      <div class="m-menu">
+        <div class="m-menu__header">
+          <label class="m-menu__toggle" for="menu">
+            <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="butt" stroke-linejoin="arcs">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </label>
+          <span><a href="/">SDS Wiki</a></span>
+        </div>
+        <ul>
+          <li><label><a href="/">Início</a></label></li>
+          <li><label><a href="sds-animal-group">SDS Animal Group</a></label></li>
+          <li><label><a href="sds-farm">SDS Farm</a></label></li>
+          <li><label><a href="sds-incubatorio">SDS Incubatório</a></label></li>
+        </ul>
+        
+        <a href="all"><label class="ver-todos-button">Ver todos</label></a>
+      </div>
+    </nav>
+	<main class="pt-10">
+		<p class="text-2xl font-semibold text-slate-300">Lista de documentos:</p>
+		<ul class="all-posts">
+			{
+				codeEntries
+					.sort(
+						({ data: { date: dateA } }, { data: { date: dateB } }) =>
+							new Date(dateB).valueOf() - new Date(dateA).valueOf(),
+					)
+					.map(({ data: { title }, slug }) => (
+						<li class="border-l-2 pb-2 pt-3 border-slate-600">
+							<svg class="circulo-todos-documentos" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 32 32"><circle class="circulo-svg" cx="16" cy="16" r="10" fill="#475569"></circle><path fill="#475569" d="M16 30a14 14 0 1 1 14-14a14.016 14.016 0 0 1-14 14Zm0-26a12 12 0 1 0 12 12A12.014 12.014 0 0 0 16 4Z"></path></svg>
+							<a class="text-gl
+							titulos-todos-documentos" href={`/${slug}`}>{title}</a>
+						</li>
+					))
+			}
+		</ul>
+	</main>
+</Layout>
