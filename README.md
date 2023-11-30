@@ -4,7 +4,7 @@
     <br><br>
     <a href="https://astro.build/"><img src="https://img.shields.io/badge/Astro-FF5D01?logo=astro&logoColor=fff&style=fflat"></a>
     <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=black"></a>
-    <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white"></a>
+    <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white"></a>
 </p>
 
 Welcome to SDS Wiki, a website for storing and sharing your Markdown (.md) files easily and intuitively, powered by the magic of Astro! ✨
