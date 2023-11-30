@@ -17,7 +17,7 @@ Make sure to have Node installed. Then, follow these steps:
 
 ## Usage
 
-Explore and share your knowledge! Visit the [SDS Wiki example page](https://site-renato.vercel.app/) to get an idea.
+Explore and share your knowledge! Visit the [SDS Wiki example page](https://sds-wiki.vercel.app/) to get an idea.
 
 ## Contributions
 
